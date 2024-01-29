@@ -54,7 +54,7 @@ if __name__ == "__main__":
                 print(f"Задача с названием '{task_title}' не найдена.")
         elif choice == "4":
             for task in task_manager.tasks:
-                print(f"{task.title} ({task.status})")
+                print(f"{task.title} ({task.status.value})")
                 print(f"Описание: {task.description}")
                 print(f"Дата создания: {task.created_at}")
                 print(f"Дата изменения статуса: {task.status_changed_at}")

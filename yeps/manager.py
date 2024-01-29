@@ -24,9 +24,12 @@ class Task:
 class TaskManager:
     def __init__(self):
         self.tasks = []
+        self.history = []
 
     def add_task(self, task):
         self.tasks.append(task)
+        self.history.append(f"Добавлена задача '{task.title}' ({task.status.value}). Описание: {task.description}, "
+                            f"Время создания: {task.created_at}, Время изменения статуса: {task.status_changed_at}")
 
     def change_task_status(self, task_title, new_status):
         for task in self.tasks:
@@ -34,6 +37,9 @@ class TaskManager:
                 old_status = task.status
                 task.status = new_status
                 task.status_changed_at = datetime.now()
+                self.history.append(f"Статус задачи '{task.title}' изменен с '{old_status.value}' на '{new_status.value}'. "
+                                    f"Описание: {task.description}, Время создания: {task.created_at}, "
+                                    f"Время изменения статуса: {task.status_changed_at}")
                 return True
         return False
 
