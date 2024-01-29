@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from enum import Enum
 from datetime import datetime
 import json
@@ -18,8 +18,6 @@ class Task:
     created_at: datetime
     status_changed_at: datetime
 
-    def to_dict(self):
-        return asdict(self)
 
 class TaskManager:
     def __init__(self):
